@@ -1,7 +1,8 @@
-package com.software.rmh.tourthebible
+package com.software.rmh.tourthebible.controllers
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.software.rmh.tourthebible.R
 
 class MainActivity : AppCompatActivity() {
 
