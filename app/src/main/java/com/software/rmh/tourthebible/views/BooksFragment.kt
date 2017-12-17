@@ -2,7 +2,7 @@ package com.software.rmh.tourthebible.views
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import android.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,7 +18,7 @@ import com.software.rmh.tourthebible.R
  */
 class BooksFragment : Fragment() {
 
-    private var listener: OnBooksFragmentInteractionListener? = null
+    //private var listener: OnBooksFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,16 +32,16 @@ class BooksFragment : Fragment() {
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
-        if (context is OnBooksFragmentInteractionListener) {
-            listener = context
-        } else {
-            throw RuntimeException(context!!.toString() + " must implement OnBooksFragmentInteractionListener")
-        }
+        //if (context is OnBooksFragmentInteractionListener) {
+        //    listener = context
+        //} else {
+        //    throw RuntimeException(context!!.toString() + " must implement OnBooksFragmentInteractionListener")
+        //}
     }
 
     override fun onDetach() {
         super.onDetach()
-        listener = null
+        //listener = null
     }
 
     /**
@@ -50,9 +50,9 @@ class BooksFragment : Fragment() {
      * to the activity and potentially other fragments contained in that
      * activity.
      */
-    interface OnBooksFragmentInteractionListener {
+    //interface OnBooksFragmentInteractionListener {
         // TODO: Update argument type and name
-    }
+    //}
 
     companion object {
         // TODO: Rename parameter arguments, choose names that match
@@ -69,13 +69,12 @@ class BooksFragment : Fragment() {
          * @return A new instance of fragment BooksFragment.
          */
         // TODO: Rename and change types and number of parameters
-        fun newInstance(param1: String, param2: String): BooksFragment {
-            val fragment = BooksFragment()
-            val args = Bundle()
-            args.putString(ARG_PARAM1, param1)
-            args.putString(ARG_PARAM2, param2)
-            fragment.arguments = args
-            return fragment
+        fun newInstance(): BooksFragment {
+            //val args = Bundle()
+            //args.putString(ARG_PARAM1, param1)
+            //args.putString(ARG_PARAM2, param2)
+            //fragment.arguments = args
+            return BooksFragment()
         }
     }
 }
