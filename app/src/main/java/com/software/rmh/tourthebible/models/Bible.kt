@@ -7,4 +7,7 @@ package com.software.rmh.tourthebible.models
  * from each endpoint. It will be an entire "Bible" so to speak.
  */
 class Bible {
+    // Endpoint the returns all of the books in the KJV Bible along with their number in order.
+    val booksEndpoint = "https://getbible.net/index.php?option=com_getbible&task=bible.books&format=json&v=kjv"
+
 }
