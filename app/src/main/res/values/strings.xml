@@ -76,4 +76,10 @@
         <item>Jude</item>
         <item>Revelations</item>
     </array>
+
+    <array name="versions">
+        <item>King James Version</item>
+        <item>English Standard Version</item>
+        <item>New King James Version</item>
+    </array>
 </resources>
