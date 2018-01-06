@@ -1,13 +1,11 @@
 package com.software.rmh.tourthebible.views
 
+import android.app.Fragment
 import android.content.Context
-import android.net.Uri
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
 import com.software.rmh.tourthebible.R
 
 /**
@@ -20,7 +18,7 @@ import com.software.rmh.tourthebible.R
  */
 class AboutFragment : Fragment() {
 
-    private var listener: OnAboutFragmentInteractionListener? = null
+    //private var listener: OnAboutFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,16 +32,16 @@ class AboutFragment : Fragment() {
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
-        if (context is OnAboutFragmentInteractionListener) {
-            listener = context
-        } else {
-            throw RuntimeException(context!!.toString() + " must implement OnAboutFragmentInteractionListener")
-        }
+        //if (context is OnAboutFragmentInteractionListener) {
+            //listener = context
+        //} else {
+            //throw RuntimeException(context!!.toString() + " must implement OnAboutFragmentInteractionListener")
+        //}
     }
 
     override fun onDetach() {
         super.onDetach()
-        listener = null
+        //listener = null
     }
 
     /**
@@ -52,10 +50,10 @@ class AboutFragment : Fragment() {
      * to the activity and potentially other fragments contained in that
      * activity.
      */
-    interface OnAboutFragmentInteractionListener {
+    //interface OnAboutFragmentInteractionListener {
         // TODO: Update argument type and name
-        fun onFragmentInteraction(uri: Uri)
-    }
+    //    fun onFragmentInteraction(uri: Uri)
+    //}
 
     companion object {
         // TODO: Rename parameter arguments, choose names that match
@@ -72,13 +70,12 @@ class AboutFragment : Fragment() {
          * @return A new instance of fragment AboutFragment.
          */
         // TODO: Rename and change types and number of parameters
-        fun newInstance(param1: String, param2: String): AboutFragment {
-            val fragment = AboutFragment()
-            val args = Bundle()
-            args.putString(ARG_PARAM1, param1)
-            args.putString(ARG_PARAM2, param2)
-            fragment.arguments = args
-            return fragment
+        fun newInstance(): AboutFragment {
+            //val args = Bundle()
+            //args.putString(ARG_PARAM1, param1)
+            //args.putString(ARG_PARAM2, param2)
+            //fragment.arguments = args
+            return AboutFragment()
         }
     }
 }
