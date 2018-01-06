@@ -3,13 +3,13 @@ package com.software.rmh.tourthebible.views
 import android.app.Fragment
 import android.content.Context
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.software.rmh.tourthebible.R
-import kotlinx.android.synthetic.main.fragment_books.*
+import com.software.rmh.tourthebible.adapters.BookListAdapter
 
 /**
  * A simple [Fragment] subclass. This fragment will display all 66 books of the Bible in
@@ -20,6 +20,8 @@ import kotlinx.android.synthetic.main.fragment_books.*
  */
 class BooksFragment : Fragment() {
 
+    private var bookList: RecyclerView? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -29,13 +31,18 @@ class BooksFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater!!.inflate(R.layout.fragment_books, container, false)
 
-        bookList.layoutManager = LinearLayoutManager(view.context)
-
+        if(view is RecyclerView){
+            bookList = view
+            bookList!!.adapter = BookListAdapter(this.activity)
+            val divider = DividerItemDecoration(this.activity, DividerItemDecoration.VERTICAL)
+            bookList!!.addItemDecoration(divider)
+        }
         return view
     }
 
     override fun onAttach(context: Context?) {
         super.onAttach(context)
+
     }
 
     override fun onDetach() {

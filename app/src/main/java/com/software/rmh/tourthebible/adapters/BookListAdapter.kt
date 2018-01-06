@@ -13,6 +13,8 @@ import com.software.rmh.tourthebible.R
  */
 class BookListAdapter(private val context: Context) : RecyclerView.Adapter<BookListAdapter.BookHolder>() {
 
+    private val allBooks = context.resources.getStringArray(R.array.all_books)
+
     class BookHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
 
         private val bookName = view.findViewById<TextView>(R.id.bookName)
@@ -20,7 +22,7 @@ class BookListAdapter(private val context: Context) : RecyclerView.Adapter<BookL
             view.setOnClickListener(this)
         }
 
-        override fun onClick(p0: View?) {
+        override fun onClick(view: View) {
             // TODO(rhoffman)
         }
 
@@ -30,7 +32,7 @@ class BookListAdapter(private val context: Context) : RecyclerView.Adapter<BookL
 
     }
 
-    override fun getItemCount() = context.resources.getStringArray(R.array.all_books).size
+    override fun getItemCount() = allBooks.size
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookListAdapter.BookHolder {
@@ -39,7 +41,7 @@ class BookListAdapter(private val context: Context) : RecyclerView.Adapter<BookL
     }
 
     override fun onBindViewHolder(holder: BookListAdapter.BookHolder, position: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        holder.bindText(allBooks[position])
     }
 
 }
