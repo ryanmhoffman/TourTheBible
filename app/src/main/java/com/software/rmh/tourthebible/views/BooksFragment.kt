@@ -1,15 +1,14 @@
 package com.software.rmh.tourthebible.views
 
 import android.app.Fragment
-import android.content.Context
 import android.os.Bundle
-import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
+import android.widget.ListView
 import com.software.rmh.tourthebible.R
-import com.software.rmh.tourthebible.adapters.BookListAdapter
 
 /**
  * A simple [Fragment] subclass. This fragment will display all 66 books of the Bible in
@@ -20,33 +19,23 @@ import com.software.rmh.tourthebible.adapters.BookListAdapter
  */
 class BooksFragment : Fragment() {
 
-    private var bookList: RecyclerView? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    private var bookList: ListView? = null
+    private var allBooks: Array<String>? = null
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
+
         val view = inflater!!.inflate(R.layout.fragment_books, container, false)
 
-        if(view is RecyclerView){
+        allBooks = view.context.resources.getStringArray(R.array.all_books)
+
+        if(view is ListView){
             bookList = view
-            bookList!!.adapter = BookListAdapter(this.activity)
-            val divider = DividerItemDecoration(this.activity, DividerItemDecoration.VERTICAL)
-            bookList!!.addItemDecoration(divider)
+            val adapter = ArrayAdapter(view.context, android.R.layout.simple_list_item_1,
+                    allBooks)
+            bookList!!.adapter = adapter
         }
         return view
-    }
-
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
-
-    }
-
-    override fun onDetach() {
-        super.onDetach()
     }
 
     companion object {

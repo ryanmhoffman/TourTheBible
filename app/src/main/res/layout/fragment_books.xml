@@ -1,4 +1,4 @@
-<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
              android:id="@+id/bookList"
              xmlns:app="http://schemas.android.com/apk/res-auto"
              xmlns:tools="http://schemas.android.com/tools"
@@ -8,4 +8,4 @@
              tools:context="com.software.rmh.tourthebible.views.BooksFragment">
 
 
-</android.support.v7.widget.RecyclerView>
+</ListView>
