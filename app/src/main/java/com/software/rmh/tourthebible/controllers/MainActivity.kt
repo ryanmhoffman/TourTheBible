@@ -35,12 +35,12 @@ class MainActivity : AppCompatActivity() {
         val about = AHBottomNavigationItem(getString(R.string.about),
                 ContextCompat.getDrawable(this, R.drawable.ic_about))
 
-        bottomNav.addItem(books)
         bottomNav.addItem(versions)
+        bottomNav.addItem(books)
         bottomNav.addItem(about)
 
         bottomNav.isBehaviorTranslationEnabled = true
-        bottomNav.currentItem = 0
+        bottomNav.currentItem = 1
 
         bottomNav.setOnTabSelectedListener { position, _ ->
             changeFragment(position)
@@ -50,8 +50,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun changeFragment(position: Int) {
         when(position) {
-            0 -> replaceCurrentFragment(BOOKS_FRAGMENT_KEY, BooksFragment.newInstance())
-            1 -> replaceCurrentFragment(VERSIONS_FRAGMENT_KEY, VersionsFragment.newInstance())
+            0 -> replaceCurrentFragment(VERSIONS_FRAGMENT_KEY, VersionsFragment.newInstance())
+            1 -> replaceCurrentFragment(BOOKS_FRAGMENT_KEY, BooksFragment.newInstance())
             2 -> replaceCurrentFragment(ABOUT_FRAGMENT_KEY, AboutFragment.newInstance())
         }
     }
