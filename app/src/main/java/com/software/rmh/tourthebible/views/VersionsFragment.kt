@@ -35,7 +35,11 @@ class VersionsFragment : Fragment() {
             versionList!!.adapter = adapter
 
             versionList!!.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
-                Toast.makeText(parent.context, "Clicked " + versions!![position], Toast.LENGTH_SHORT).show() }
+                when(position){
+                    0 -> Toast.makeText(parent.context, "KJV Selected", Toast.LENGTH_SHORT).show()
+                    1 -> Toast.makeText(parent.context, "ESV Coming Soon", Toast.LENGTH_SHORT).show()
+                    2 -> Toast.makeText(parent.context, "NKJV Coming Soon", Toast.LENGTH_SHORT).show()
+                } }
         }
 
         return view
