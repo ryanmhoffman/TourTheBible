@@ -6,8 +6,10 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import android.widget.Toast
 import com.software.rmh.tourthebible.R
 
 /**
@@ -34,6 +36,9 @@ class BooksFragment : Fragment() {
             val adapter = ArrayAdapter(view.context, android.R.layout.simple_list_item_1,
                     allBooks)
             bookList!!.adapter = adapter
+            bookList!!.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
+                Toast.makeText(parent.context, "Clicked " + allBooks!![position], Toast.LENGTH_SHORT).show() }
+            // TODO(RMH): Call the API to get the book and chapter selected
         }
         return view
     }
