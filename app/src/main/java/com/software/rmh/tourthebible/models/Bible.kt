@@ -32,4 +32,13 @@ class Bible {
         return gson.toJson(list)
     }
 
+    fun getChapter(book: String): String {
+        val endpoint = "https://getbible.net/json?p=" + book + 1
+        val connection = URL(endpoint).openConnection() as HttpURLConnection
+        connection.addRequestProperty("User-Agent", "Mozilla/4.0")
+        val list = connection.inputStream.bufferedReader().readText()
+        print(list)
+        return "abc"
+    }
+
 }

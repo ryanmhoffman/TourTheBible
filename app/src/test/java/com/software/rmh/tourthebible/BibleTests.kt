@@ -13,4 +13,10 @@ class BibleTests {
         val bible = Bible()
         assert(bible.getBooksFromJson() is String)
     }
+
+    @Test
+    fun testGetChapter() {
+        val bible = Bible()
+        assert(bible.getChapter("Genesis") is String)
+    }
 }
