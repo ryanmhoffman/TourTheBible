@@ -1,6 +1,7 @@
 package com.software.rmh.tourthebible.views
 
 import android.app.Fragment
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -9,8 +10,8 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
-import android.widget.Toast
 import com.software.rmh.tourthebible.R
+import com.software.rmh.tourthebible.controllers.BooksActivity
 
 /**
  * A simple [Fragment] subclass. This fragment will display all 66 books of the Bible in
@@ -37,8 +38,11 @@ class BooksFragment : Fragment() {
                     allBooks)
             bookList!!.adapter = adapter
             bookList!!.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
-                Toast.makeText(parent.context, "Clicked " + allBooks!![position], Toast.LENGTH_SHORT).show() }
-            // TODO(RMH): Call the API to get the book and chapter selected
+                val intent = Intent(view.context, BooksActivity::class.java)
+                view.context.startActivity(intent)
+                //Toast.makeText(parent.context, "Clicked " + allBooks!![position], Toast.LENGTH_SHORT).show()
+                }
+
         }
         return view
     }
